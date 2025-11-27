@@ -3,12 +3,10 @@
 2. route ke path article-be
 3. jalankan docker compose up -d
 4. jalankan query create di database
-\n
 atau jalankan query dengan jalankan di terminal
 ```bash
 migrate -path ./migrations -database "mysql://user:admin@tcp(localhost:3306)/article?parseTime=true&multiStatements=true" up 1
 ```
-\n
 CREATE TABLE article.posts (
   id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
   title VARCHAR(200) NOT NULL,
