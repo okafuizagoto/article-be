@@ -18,6 +18,6 @@ CREATE TABLE article.posts (
   STATUS VARCHAR(100) NOT NULL DEFAULT 'Draft'
 );
 
-6. Import postman collection ke postman local
-7. Jalankan program secara local dengan go run cmd/http/main.go
-8. Jika ada error pada go mod, jalankan go mod tidy, lalu jalankan go mod vendor, lalu jalankan program di langkah nomor 6
+5. Import postman collection ke postman local
+6. Jalankan program secara local dengan go run cmd/http/main.go
+7. Jika ada error pada go mod, jalankan go mod tidy, lalu jalankan go mod vendor, lalu jalankan program di langkah nomor 6
