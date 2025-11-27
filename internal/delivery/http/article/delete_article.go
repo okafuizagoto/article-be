@@ -3,6 +3,7 @@ package article
 import (
 	httpHelper "article-be/internal/delivery/http"
 	"article-be/pkg/response"
+	"fmt"
 	"log"
 	"net/http"
 	"strconv"
@@ -48,7 +49,21 @@ func (h *Handler) DeleteArticle(w http.ResponseWriter, r *http.Request) {
 	types = r.FormValue("type")
 	switch types {
 	}
-
+	value, ok := result.(string)
+	if !ok {
+		fmt.Println("not string")
+	}
+	if result != "Berhasil Delete" {
+		resp = response.Response{
+			Data:     result,
+			Metadata: nil,
+			Error: response.Error{
+				Status: true,
+				Msg:    value,
+			},
+			StatusCode: 400,
+		}
+	}
 	if err != nil {
 		resp = httpHelper.ParseErrorCode(err.Error())
 		//

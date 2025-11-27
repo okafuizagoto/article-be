@@ -5,6 +5,7 @@ import (
 	articleEntity "article-be/internal/entity/article"
 	"article-be/pkg/response"
 	"encoding/json"
+	"fmt"
 	"io/ioutil"
 	"log"
 	"net/http"
@@ -54,7 +55,23 @@ func (h *Handler) UpdateArticle(w http.ResponseWriter, r *http.Request) {
 			log.Println("err", err)
 		}
 	}
-	// Your code here
+	value, ok := result.(string)
+	if !ok {
+		// gagal parsing
+		fmt.Println("not string")
+	}
+	if result != "Berhasil Update" {
+		resp = response.Response{
+			Data:     result,
+			Metadata: nil,
+			Error: response.Error{
+				Status: true,
+				Msg:    value,
+			},
+			StatusCode: 400,
+		}
+	}
+
 	types = r.FormValue("type")
 	switch types {
 

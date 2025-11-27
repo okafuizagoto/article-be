@@ -41,6 +41,7 @@ func (s Service) InsertArticle(ctx context.Context, article articleEntity.Post) 
 	if err != nil {
 		return message, errors.Wrap(err, "[Service][InsertArticle]")
 	}
+	message = "Berhasil Insert"
 
 	return message, err
 }

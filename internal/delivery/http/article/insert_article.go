@@ -4,6 +4,7 @@ import (
 	articleEntity "article-be/internal/entity/article"
 	"article-be/pkg/response"
 	"encoding/json"
+	"fmt"
 	"io/ioutil"
 	"log"
 	"net/http"
@@ -51,6 +52,21 @@ func (h *Handler) InsertArticle(w http.ResponseWriter, r *http.Request) {
 		result, err = h.articleSvc.InsertArticle(ctx, insertArticle)
 		if err != nil {
 			log.Println("err", err)
+		}
+		value, ok := result.(string)
+		if !ok {
+			fmt.Println("not string")
+		}
+		if result != "Berhasil Insert" {
+			resp = response.Response{
+				Data:     result,
+				Metadata: nil,
+				Error: response.Error{
+					Status: true,
+					Msg:    value,
+				},
+				StatusCode: 400, 
+			}
 		}
 	}
 
