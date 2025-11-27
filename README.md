@@ -16,7 +16,7 @@ CREATE TABLE article.posts (
   created_date TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
   updated_date TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
   STATUS VARCHAR(100) NOT NULL DEFAULT 'Draft'
-)
+);
 
 6. Import postman collection ke postman local
 7. Jalankan program secara local dengan go run cmd/http/main.go
