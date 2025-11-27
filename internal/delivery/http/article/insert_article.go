@@ -22,7 +22,7 @@ import (
 // @Security BearerAuth
 // @Success 200
 // @Router /v1/profiles [get]
-func (h *Handler) InsertGoldGym(w http.ResponseWriter, r *http.Request) {
+func (h *Handler) InsertArticle(w http.ResponseWriter, r *http.Request) {
 	var (
 		result        interface{}
 		metadata      interface{}

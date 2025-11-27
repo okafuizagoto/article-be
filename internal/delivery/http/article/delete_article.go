@@ -22,7 +22,7 @@ import (
 // @Security BearerAuth
 // @Success 200
 // @Router /v1/profiles [get]
-func (h *Handler) DeleteGoldGym(w http.ResponseWriter, r *http.Request) {
+func (h *Handler) DeleteArticle(w http.ResponseWriter, r *http.Request) {
 	var (
 		result   interface{}
 		metadata interface{}

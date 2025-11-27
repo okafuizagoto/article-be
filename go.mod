@@ -26,7 +26,6 @@ require (
 	github.com/uber/jaeger-client-go v2.30.0+incompatible
 	go.uber.org/zap v1.27.1
 	google.golang.org/api v0.256.0
-	gopkg.in/guregu/null.v3 v3.5.0
 	gopkg.in/yaml.v2 v2.4.0
 	gorm.io/driver/mysql v1.6.0
 )

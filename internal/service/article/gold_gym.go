@@ -19,6 +19,7 @@ type Data interface {
 	GetArticleByPagination(ctx context.Context, offset, limit int) ([]articleEntity.Get, error)
 	UpdateArticle(ctx context.Context, id int, article articleEntity.Put) error
 	DeleteArticle(ctx context.Context, id int) error
+	GetAllArticleByPagination(ctx context.Context) (int, error)
 }
 
 // Service ...

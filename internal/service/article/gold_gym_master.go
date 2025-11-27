@@ -54,16 +54,22 @@ func (s Service) GetArticleByID(ctx context.Context, id string) (articleEntity.G
 	return users, nil
 }
 
-func (s Service) GetArticleByPagination(ctx context.Context, page, length int) ([]articleEntity.Get, error) {
+func (s Service) GetArticleByPagination(ctx context.Context, page, length int) ([]articleEntity.Get, int, error) {
+	var total int
 	if page == 0 {
 		page = 1
 	}
 	offset := (page - 1) * length
 	users, err := s.goldgym.GetArticleByPagination(ctx, offset, length)
 	if err != nil {
-		return users, errors.Wrap(err, "[Service][GetArticleByPagination]")
+		return users, total, errors.Wrap(err, "[Service][GetArticleByPagination]")
 	}
-	return users, nil
+
+	total, err = s.goldgym.GetAllArticleByPagination(ctx)
+	if err != nil {
+		return users, total, errors.Wrap(err, "[Service][GetArticleByPagination]")
+	}
+	return users, total, nil
 }
 
 func (s Service) UpdateArticle(ctx context.Context, id int, article articleEntity.Put) (string, error) {

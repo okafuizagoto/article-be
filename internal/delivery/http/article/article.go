@@ -11,7 +11,7 @@ import (
 type IarticleSvc interface {
 	InsertArticle(ctx context.Context, article articleEntity.Post) (string, error)
 	GetArticleByID(ctx context.Context, id string) (articleEntity.Get, error)
-	GetArticleByPagination(ctx context.Context, page, length int) ([]articleEntity.Get, error)
+	GetArticleByPagination(ctx context.Context, page, length int) ([]articleEntity.Get, int, error)
 	UpdateArticle(ctx context.Context, id int, article articleEntity.Put) (string, error)
 	DeleteArticle(ctx context.Context, id int) (string, error)
 }

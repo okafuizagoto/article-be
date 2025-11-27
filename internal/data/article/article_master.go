@@ -72,6 +72,26 @@ func (d Data) GetArticleByPagination(ctx context.Context, offset, limit int) ([]
 	return articles, err
 }
 
+func (d Data) GetAllArticleByPagination(ctx context.Context) (int, error) {
+	var (
+		total int
+		err   error
+	)
+	rows, err := (*d.stmt)[getAllArticleByPagination].QueryxContext(ctx)
+	if err != nil {
+		return total, errors.Wrap(err, "[DATA] [GetAllArticleByPagination]")
+	}
+
+	defer rows.Close()
+
+	for rows.Next() {
+		if err = rows.Scan(&total); err != nil {
+			return total, errors.Wrap(err, "[DATA] [GetAllArticleByPagination]")
+		}
+	}
+	return total, err
+}
+
 func (d Data) UpdateArticle(ctx context.Context, id int, article articleEntity.Put) error {
 	var (
 		err error

@@ -10,10 +10,10 @@ import (
 
 // GoldGymHandler ...
 type GoldGymHandler interface {
-	GetGoldGym(w http.ResponseWriter, r *http.Request)
-	InsertGoldGym(w http.ResponseWriter, r *http.Request)
-	DeleteGoldGym(w http.ResponseWriter, r *http.Request)
-	UpdateGoldGym(w http.ResponseWriter, r *http.Request)
+	GetArticle(w http.ResponseWriter, r *http.Request)
+	InsertArticle(w http.ResponseWriter, r *http.Request)
+	DeleteArticle(w http.ResponseWriter, r *http.Request)
+	UpdateArticle(w http.ResponseWriter, r *http.Request)
 	// PrintSelisih(w http.ResponseWriter, r *http.Request)
 	// PrintExpiredTerpajang(w http.ResponseWriter, r *http.Request)
 	// PrintExpiredTerkumpul(w http.ResponseWriter, r *http.Request)

@@ -32,14 +32,14 @@ func (s *Server) Handler() *mux.Router {
 	// Routes
 	// goldgym := router.PathPrefix("/").Subrouter()
 
-	router.HandleFunc("", s.Goldgym.GetGoldGym).Methods("GET")
-	router.HandleFunc("/{id}", s.Goldgym.GetGoldGym).Methods("GET")
-	router.HandleFunc("/{page}/{length}", s.Goldgym.GetGoldGym).Methods("GET")
-	router.HandleFunc("", s.Goldgym.InsertGoldGym).Methods("POST")
-	router.HandleFunc("", s.Goldgym.UpdateGoldGym).Methods("PUT")
-	router.HandleFunc("/{id}", s.Goldgym.UpdateGoldGym).Methods("PUT")
-	router.HandleFunc("", s.Goldgym.DeleteGoldGym).Methods("DELETE")
-	router.HandleFunc("/{id}", s.Goldgym.DeleteGoldGym).Methods("DELETE")
+	router.HandleFunc("", s.Goldgym.GetArticle).Methods("GET")
+	router.HandleFunc("/{id}", s.Goldgym.GetArticle).Methods("GET")
+	router.HandleFunc("/{page}/{length}", s.Goldgym.GetArticle).Methods("GET")
+	router.HandleFunc("", s.Goldgym.InsertArticle).Methods("POST")
+	router.HandleFunc("", s.Goldgym.UpdateArticle).Methods("PUT")
+	router.HandleFunc("/{id}", s.Goldgym.UpdateArticle).Methods("PUT")
+	router.HandleFunc("", s.Goldgym.DeleteArticle).Methods("DELETE")
+	router.HandleFunc("/{id}", s.Goldgym.DeleteArticle).Methods("DELETE")
 
 	// goldgym.HandleFunc("/login", s.Auth.LoginUser).Methods("POST")
 

@@ -23,7 +23,7 @@ import (
 // @Success 200
 
 // @Router /v1/profiles [get]
-func (h *Handler) GetGoldGym(w http.ResponseWriter, r *http.Request) {
+func (h *Handler) GetArticle(w http.ResponseWriter, r *http.Request) {
 	var (
 		result   interface{}
 		metadata interface{}
@@ -50,7 +50,7 @@ func (h *Handler) GetGoldGym(w http.ResponseWriter, r *http.Request) {
 	if page != "" && length != "" {
 		pages, _ := strconv.Atoi(page)
 		lenghts, _ := strconv.Atoi(length)
-		result, err = h.articleSvc.GetArticleByPagination(ctx, pages, lenghts)
+		result, metadata, err = h.articleSvc.GetArticleByPagination(ctx, pages, lenghts)
 	}
 	// Your code here
 	types = r.FormValue("type")

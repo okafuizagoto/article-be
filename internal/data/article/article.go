@@ -44,6 +44,10 @@ FROM posts where id = ?`
 	qGetArticleByPagination = `SELECT id, title, content, category, created_date, updated_date, status
 FROM posts limit ?, ?`
 
+	getAllArticleByPagination  = "GetAllArticleByPagination"
+	qGetAllArticleByPagination = `SELECT count(id) as total_page
+FROM posts`
+
 	updateArticle  = "UpdateArticle"
 	qUpdateArticle = `UPDATE posts
 SET 
@@ -55,7 +59,7 @@ SET
 WHERE id = ?`
 
 	deleteArticle  = "DeleteArticle"
-	qDeleteArticle = `DELETE FROM posts
+	qDeleteArticle = `Update posts set status = "trashed", updated_date = NOW()
 WHERE id = ?`
 )
 
@@ -63,6 +67,7 @@ var (
 	readStmt = []statement{
 		{getArticleByID, qGetArticleByID},
 		{getArticleByPagination, qGetArticleByPagination},
+		{getAllArticleByPagination, qGetAllArticleByPagination},
 	}
 	insertStmt = []statement{
 		{insertArticle, qInsertArticle},
